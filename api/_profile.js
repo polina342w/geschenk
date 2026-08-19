@@ -1,0 +1,3 @@
+import {neon} from '@neondatabase/serverless';
+export function database(){if(!process.env.DATABASE_URL)throw new Error('DATABASE_URL fehlt.');return neon(process.env.DATABASE_URL)}
+export async function getProfile(sql,userId){const profiles=await sql`SELECT u.username,p.display_name,p.birth_date_label,p.hero_text,p.letter_title,p.letter_body,p.signature,p.hero_image_url FROM users u JOIN profiles p ON p.user_id=u.id WHERE u.id=${userId} LIMIT 1`;if(!profiles[0])return null;const gallery=await sql`SELECT image_url,alt_text,caption,note FROM gallery_images WHERE user_id=${userId} ORDER BY position ASC LIMIT 10`;return{...profiles[0],gallery}}

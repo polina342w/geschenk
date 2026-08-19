@@ -1,0 +1,7 @@
+{
+  "name": "birthday-gift",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "npx vercel dev" },
+  "dependencies": { "@neondatabase/serverless": "^1.0.1", "jose": "^6.0.11" }
+}
