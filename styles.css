@@ -71,3 +71,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @media(max-height:500px) and (orientation:landscape){.gallery-grid{display:flex;max-width:600px}.gallery-grid .memory:nth-child(n){width:92%;margin-left:auto;margin-right:auto}}
 
 .login-art:after{content:"A LITTLE GIFT"}.welcome-stamp b{font-style:normal;letter-spacing:0}.welcome-stamp span{white-space:nowrap}
+
+/* Keep Ronaldo's arms attached to the outside edges of both shoulders. */
+.ronaldo-runner .runner-arm{left:55px;top:39px}.ronaldo-runner .runner-arm-back{left:13px;top:40px}.ronaldo-runner .runner-arm:before,.ronaldo-runner .runner-arm-back:before{content:"";position:absolute;left:-4px;top:-1px;width:11px;height:11px;border-radius:50%;background:#a71930}.ronaldo-runner .runner-arm-back:before{left:0}
