@@ -145,4 +145,8 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .hero-present{background:linear-gradient(90deg,var(--deep) 0 41%,#d7b170 41% 59%,var(--deep) 59% 100%)}.hero-present:before{display:none}
 
 /* Center Ronaldo's neck over the torso. */
-.ronaldo-runner .runner-neck{left:33px}
+.ronaldo-runner .runner-neck{left:35px}
+
+/* Layered gift: the dark lid cleanly covers the lower edges of the gold bow. */
+.hero-present{background:var(--deep)}.hero-present:before,.hero-present:after{display:none}.present-ribbon{position:absolute;z-index:1;inset:0 41%;background:#d7b170}.present-lid{position:absolute;z-index:4;left:-5%;right:-5%;top:-12%;height:22%;overflow:hidden;border-radius:7px;background:var(--deep)}.present-lid:after{content:"";position:absolute;inset:0 41%;background:#d7b170}.present-bow{position:absolute;z-index:3;left:0;right:0;top:-35%;height:36%}.present-bow i{position:absolute;width:43%;height:100%;border:13px solid #d7b170}.present-bow i:first-child{left:8%;border-radius:55% 45% 10% 55%;transform:rotate(20deg)}.present-bow i:last-child{right:8%;border-radius:45% 55% 55% 10%;transform:rotate(-20deg)}
+@media(max-width:520px){.present-bow i{border-width:10px}}
