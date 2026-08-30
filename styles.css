@@ -128,3 +128,15 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 /* Authentic Challenger sprite replaces the geometric CSS approximation. */
 .challenger{width:246px;height:103px;bottom:58px;background:url('/assets/dodge-challenger.png') center/contain no-repeat;filter:drop-shadow(0 12px 8px #09251f70)}
 @media(max-width:520px){.challenger{width:218px;height:91px;bottom:62px}}
+
+/* Real goal asset, correctly scaled car, and balloons held in one hand before release. */
+.goal{right:-5px;bottom:76px;width:170px;height:128px;border:0;border-radius:0;background:url('/assets/football-goal.png') center bottom/contain no-repeat;filter:drop-shadow(4px 8px 5px #09251f55)}.goal:before,.goal:after{display:none}.goal-net{display:none}.goal b{z-index:3;top:-23px}
+.balloon-finale.playing .goal .goal-net{animation:none!important;transform:none!important}
+.challenger{width:310px;height:129px;bottom:48px}
+.balloon{bottom:248px}.balloon span{height:56px}.balloon-one span{transform:rotate(-18deg)}.balloon-two span{transform:rotate(-9deg)}.balloon-three span{transform:rotate(0)}.balloon-four span{transform:rotate(12deg)}.balloon-five span{transform:rotate(22deg)}
+.balloon-finale.playing .balloon{animation:balloon-hand-release 9s linear both;animation-delay:0s!important}.balloon-finale.playing .ronaldo-runner .runner-arm{animation:front-arm-balloons 9s linear both}.balloon-finale.playing .ronaldo-runner .runner-arm>i{animation:front-forearm-balloons 9s linear both}
+@keyframes balloon-hand-release{0%{left:-42px;opacity:1;transform:translate(0,8px) scale(.8)}20%,22%{left:calc(24% + 50px);opacity:1;transform:translate(0,0) scale(.82)}68%{left:calc(24% + 50px);opacity:1;transform:translate(var(--drift),-570px) rotate(-7deg) scale(.9)}78%,100%{left:calc(24% + 50px);opacity:0;transform:translate(var(--drift),-650px) rotate(6deg) scale(.9)}}
+@keyframes front-arm-balloons{0%,22%{transform:rotate(-67deg)}27%{transform:rotate(-30deg)}34%{transform:rotate(-48deg)}42%{transform:rotate(-27deg)}50%{transform:rotate(-47deg)}58%,100%{transform:rotate(-31deg)}}
+@keyframes front-forearm-balloons{0%,22%{transform:rotate(25deg)}27%{transform:rotate(8deg)}42%{transform:rotate(31deg)}58%,100%{transform:rotate(14deg)}}
+@keyframes goal-shot-fast{0%,23%{left:calc(24% + 55px);bottom:84px;opacity:0;rotate:0deg}24%{opacity:1}29%{left:58%;bottom:164px;opacity:1;rotate:500deg}35%{left:calc(100% - 90px);bottom:105px;opacity:1;rotate:1040deg}41%,100%{left:calc(100% - 90px);bottom:105px;opacity:0;rotate:1040deg}}
+@media(max-width:520px){.goal{right:-5px;bottom:78px;width:145px;height:109px}.challenger{width:276px;height:115px;bottom:53px}.balloon{bottom:242px}.balloon span{height:52px}}
