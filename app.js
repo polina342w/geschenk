@@ -1,3 +1,7 @@
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+if(location.hash)history.replaceState(null,'',location.pathname+location.search);
+window.scrollTo(0,0);
+window.addEventListener('pageshow',()=>window.scrollTo(0,0),{once:true});
 const loginView=document.querySelector('#login-view'),giftView=document.querySelector('#gift-view'),form=document.querySelector('#login-form'),errorBox=document.querySelector('#login-error'),submitButton=form.querySelector('[type="submit"]');
 const escapeHTML=(value='')=>String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
 const birthdayLetter={title:'Alles Gute zum Geburtstag, Слоник ♡',body:'Ich bin sehr froh, dass wir wieder angefangen haben, miteinander zu reden, als ich in Japan war. Ich hätte nie gedacht, dass ich einen Menschen treffen würde, dem ich so sehr vertrauen kann und bei dem ich mich so wohlfühle.\n\nIch glaube an dich und daran, dass du alles schaffen wirst, und wünsche dir zu deinem Geburtstag nur das Allerbeste. Du wirst alles meistern, weil du schön, klug und ein zukünftiger Programmierer bist )))\n\nAlles Gute zum Geburtstag!!! Und vergiss nie: Ich bin an deiner Seite und du wirst alles schaffen.',signature:'Angel'};
@@ -21,7 +25,7 @@ function fillPage(profile){
   if(profile.hero_image_url){finalPhoto.style.backgroundImage=`url("${profile.hero_image_url.replace(/["\\]/g,'')}")`;finalPhoto.classList.add('has-image');finalPhoto.innerHTML=''}
   renderGallery(profile.gallery);
 }
-function showGift(profile){fillPage(profile);loginView.hidden=true;giftView.hidden=false;window.scrollTo(0,0);requestAnimationFrame(observeReveals);launchConfetti(55)}
+function showGift(profile){fillPage(profile);loginView.hidden=true;giftView.hidden=false;window.scrollTo(0,0);requestAnimationFrame(()=>{window.scrollTo(0,0);observeReveals()});launchConfetti(55)}
 async function request(path,options){const response=await fetch(path,{credentials:'same-origin',...options});const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.error||'Something went wrong. Please try again.');return data}
 
 form.addEventListener('submit',async event=>{event.preventDefault();errorBox.textContent='';submitButton.disabled=true;submitButton.querySelector('span').textContent='Opening …';try{const data=await request('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(form)))});showGift(data.profile)}catch(error){errorBox.textContent=error.message}finally{submitButton.disabled=false;submitButton.querySelector('span').textContent='Open your gift'}});

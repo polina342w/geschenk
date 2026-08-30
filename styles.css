@@ -82,4 +82,4 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .pet-parade .pets{padding-top:32px}@media(max-width:520px){.pet-parade .pets{padding-top:12px}}
 
 /* The surprise link lands on the letter itself, with a small comfortable inset. */
-#letter{scroll-margin-top:24px}@media(max-width:520px){#letter{scroll-margin-top:18px}}
+#letter{scroll-margin-top:64px}@media(max-width:520px){#letter{scroll-margin-top:76px}}
