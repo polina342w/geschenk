@@ -140,3 +140,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @keyframes front-forearm-balloons{0%,22%{transform:rotate(25deg)}27%{transform:rotate(8deg)}42%{transform:rotate(31deg)}58%,100%{transform:rotate(14deg)}}
 @keyframes goal-shot-fast{0%,23%{left:calc(24% + 55px);bottom:84px;opacity:0;rotate:0deg}24%{opacity:1}29%{left:58%;bottom:164px;opacity:1;rotate:500deg}35%{left:calc(100% - 90px);bottom:105px;opacity:1;rotate:1040deg}41%,100%{left:calc(100% - 90px);bottom:105px;opacity:0;rotate:1040deg}}
 @media(max-width:520px){.goal{right:-5px;bottom:78px;width:145px;height:109px}.challenger{width:276px;height:115px;bottom:53px}.balloon{bottom:242px}.balloon span{height:52px}}
+
+/* A perfectly straight ribbon below the gift lid, without side protrusions. */
+.hero-present{background:linear-gradient(90deg,var(--deep) 0 41%,#d7b170 41% 59%,var(--deep) 59% 100%)}.hero-present:before{display:none}
