@@ -133,19 +133,19 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .goal{right:-5px;bottom:76px;width:170px;height:128px;border:0;border-radius:0;background:url('/assets/football-goal.png') center bottom/contain no-repeat;filter:drop-shadow(4px 8px 5px #09251f55)}.goal:before,.goal:after{display:none}.goal-net{display:none}.goal b{z-index:3;top:-23px}
 .balloon-finale.playing .goal .goal-net{animation:none!important;transform:none!important}
 .challenger{width:310px;height:129px;bottom:48px}
-.balloon{bottom:268px}.balloon-one{margin-left:-32px}.balloon-two{margin-left:-15px}.balloon-three{margin-left:2px}.balloon-four{margin-left:19px}.balloon-five{margin-left:36px}.balloon-one span{height:50px;transform:rotate(-41deg)}.balloon-two span{height:90px;transform:rotate(-10deg)}.balloon-three span{height:67px;transform:rotate(1deg)}.balloon-four span{height:98px;transform:rotate(11deg)}.balloon-five span{height:58px;transform:rotate(37deg)}
+.balloon{bottom:248px}.balloon-one{margin-left:-32px}.balloon-two{margin-left:-15px}.balloon-three{margin-left:2px}.balloon-four{margin-left:19px}.balloon-five{margin-left:36px}.balloon-one span{height:50px;transform:rotate(-41deg)}.balloon-two span{height:90px;transform:rotate(-10deg)}.balloon-three span{height:67px;transform:rotate(1deg)}.balloon-four span{height:98px;transform:rotate(11deg)}.balloon-five span{height:58px;transform:rotate(37deg)}
 .balloon-finale.playing .balloon{animation:balloon-hand-release 9s linear both;animation-delay:0s!important}.balloon-finale.playing .ronaldo-runner .runner-arm{animation:front-arm-balloons 9s linear both}.balloon-finale.playing .ronaldo-runner .runner-arm>i{animation:front-forearm-balloons 9s linear both}
 @keyframes balloon-hand-release{0%{left:-42px;opacity:1;transform:translate(0,8px) scale(.8)}20%,22%{left:calc(24% + 69px);opacity:1;transform:translate(0,0) scale(1)}68%{left:calc(24% + 69px);opacity:1;transform:translate(var(--drift),-570px) rotate(-7deg) scale(.9)}78%,100%{left:calc(24% + 69px);opacity:0;transform:translate(var(--drift),-650px) rotate(6deg) scale(.9)}}
 @keyframes front-arm-balloons{0%,22%{transform:rotate(-67deg)}27%{transform:rotate(-30deg)}34%{transform:rotate(-48deg)}42%{transform:rotate(-27deg)}50%{transform:rotate(-47deg)}58%,100%{transform:rotate(-31deg)}}
 @keyframes front-forearm-balloons{0%,22%{transform:rotate(25deg)}27%{transform:rotate(8deg)}42%{transform:rotate(31deg)}58%,100%{transform:rotate(14deg)}}
 @keyframes goal-shot-fast{0%,23%{left:calc(24% + 55px);bottom:84px;opacity:0;rotate:0deg}24%{opacity:1}29%{left:58%;bottom:164px;opacity:1;rotate:500deg}35%{left:calc(100% - 90px);bottom:105px;opacity:1;rotate:1040deg}41%,100%{left:calc(100% - 90px);bottom:105px;opacity:0;rotate:1040deg}}
-@media(max-width:520px){.goal{right:-5px;bottom:78px;width:145px;height:109px}.challenger{width:276px;height:115px;bottom:53px}.balloon{bottom:268px}}
+@media(max-width:520px){.goal{right:-5px;bottom:78px;width:145px;height:109px}.challenger{width:276px;height:115px;bottom:53px}.balloon{bottom:248px}}
 
 /* A perfectly straight ribbon below the gift lid, without side protrusions. */
 .hero-present{background:linear-gradient(90deg,var(--deep) 0 41%,#d7b170 41% 59%,var(--deep) 59% 100%)}.hero-present:before{display:none}
 
 /* Center Ronaldo's neck over the torso. */
-.ronaldo-runner .runner-neck{left:35px}
+.ronaldo-runner .runner-head{left:30px}.ronaldo-runner .runner-neck{left:39px}
 
 /* Layered gift: the dark lid cleanly covers the lower edges of the gold bow. */
 .hero-present{background:var(--deep)}.hero-present:before,.hero-present:after{display:none}.present-ribbon{position:absolute;z-index:1;inset:0 41%;background:#d7b170}.present-lid{position:absolute;z-index:4;left:-5%;right:-5%;top:-12%;height:22%;overflow:hidden;border-radius:7px;background:var(--deep)}.present-lid:after{content:"";position:absolute;inset:0 41%;background:#d7b170}.present-bow{position:absolute;z-index:3;left:0;right:0;top:-35%;height:36%}.present-bow i{position:absolute;width:43%;height:100%;border:13px solid #d7b170}.present-bow i:first-child{left:8%;border-radius:55% 45% 10% 55%;transform:rotate(20deg)}.present-bow i:last-child{right:8%;border-radius:45% 55% 55% 10%;transform:rotate(-20deg)}
