@@ -124,3 +124,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @keyframes wheel-story-fast{0%,36%{transform:rotate(0)}52%{transform:rotate(920deg)}70%{transform:rotate(920deg)}100%{transform:rotate(2300deg)}}
 @keyframes front-arm-human{from{transform:rotate(-54deg)}to{transform:rotate(-35deg)}}@keyframes back-arm-human{from{transform:rotate(128deg)}to{transform:rotate(170deg)}}@keyframes front-forearm-human{from{transform:rotate(12deg)}to{transform:rotate(37deg)}}@keyframes back-forearm-human{from{transform:rotate(50deg)}to{transform:rotate(12deg)}}
 @media(max-width:520px){.challenger{width:196px;height:70px}.car-cabin{left:37px;width:82px;height:29px}.car-body{top:31px;height:34px}.car-body b{left:94px}.car-body i{right:45px}.car-wheel{width:31px;height:31px}.wheel-left{left:25px}.wheel-right{right:27px}.goal{right:3px;width:74px;height:101px;border-width:5px}.goal:before{left:-20px;width:20px;height:83px}.goal-ball{width:20px;height:20px}@keyframes challenger-story-fast{0%,36%{left:-80%}52%,70%{left:10%}100%{left:115%}}}
+
+/* Authentic Challenger sprite replaces the geometric CSS approximation. */
+.challenger{width:246px;height:103px;bottom:58px;background:url('/assets/dodge-challenger.png') center/contain no-repeat;filter:drop-shadow(0 12px 8px #09251f70)}
+@media(max-width:520px){.challenger{width:218px;height:91px;bottom:62px}}
