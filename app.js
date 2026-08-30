@@ -14,6 +14,8 @@ function fillPage(profile){
   document.querySelector('#letter-title').textContent=profile.letter_title||`Mein liebster ${name},`;
   if(profile.letter_body)document.querySelector('#letter-body').innerHTML=profile.letter_body.split(/\n\n+/).map(p=>`<p>${escapeHTML(p)}</p>`).join('');
   document.querySelector('#signature').textContent=profile.signature||'dein Lieblingsmensch';
+  const finalPhoto=document.querySelector('[data-slot="final"]');
+  if(profile.hero_image_url){finalPhoto.style.backgroundImage=`url("${profile.hero_image_url.replace(/["\\]/g,'')}")`;finalPhoto.classList.add('has-image');finalPhoto.innerHTML=''}
   renderGallery(profile.gallery);
 }
 function showGift(profile){fillPage(profile);loginView.hidden=true;giftView.hidden=false;window.scrollTo(0,0);requestAnimationFrame(observeReveals);launchConfetti(55)}
@@ -23,6 +25,9 @@ form.addEventListener('submit',async event=>{event.preventDefault();errorBox.tex
 document.querySelector('.peek').addEventListener('click',event=>{const input=document.querySelector('#password');input.type=input.type==='password'?'text':'password';event.currentTarget.textContent=input.type==='password'?'○':'●'});
 document.querySelector('#logout').addEventListener('click',async()=>{await fetch('/api/logout',{method:'POST'}).catch(()=>{});giftView.hidden=true;loginView.hidden=false;form.reset()});
 document.querySelector('#wish-button').addEventListener('click',event=>{event.currentTarget.classList.add('done');event.currentTarget.innerHTML='Wunsch abgeschickt <span>♥</span>';document.querySelector('#wish-message').textContent='Das Universum kümmert sich jetzt darum.';launchConfetti(90)});
+const finale=document.querySelector('#balloon-finale');
+function playFinale(){finale.classList.remove('playing');void finale.offsetWidth;finale.classList.add('playing')}
+document.querySelector('#replay-balloons').addEventListener('click',()=>{playFinale();launchConfetti(24)});
 function launchConfetti(amount){const colors=['#173f35','#d7b170','#f5eee3','#8faf9f'];for(let i=0;i<amount;i++){const piece=document.createElement('i');piece.className='confetti-piece';piece.style.setProperty('--left',`${Math.random()*100}vw`);piece.style.setProperty('--color',colors[i%colors.length]);piece.style.setProperty('--duration',`${2.8+Math.random()*3}s`);piece.style.setProperty('--rotate',`${Math.random()*180}deg`);piece.style.setProperty('--drift',`${-80+Math.random()*160}px`);piece.style.animationDelay=`${Math.random()*.7}s`;document.querySelector('#confetti').appendChild(piece);setTimeout(()=>piece.remove(),7000)}}
-let observer;function observeReveals(){observer?.disconnect();observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.gift-view .reveal').forEach(el=>observer.observe(el))}
+let observer;function observeReveals(){observer?.disconnect();observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');if(entry.target===finale)playFinale();observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.gift-view .reveal').forEach(el=>observer.observe(el))}
 renderGallery();request('/api/content').then(data=>showGift(data.profile)).catch(()=>{});
