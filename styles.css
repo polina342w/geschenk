@@ -86,3 +86,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 /* Keep the personal finale photo portrait-shaped on phones. */
 @media(max-width:520px){.finale-photo .photo-placeholder{aspect-ratio:4/5;min-height:0;background-position:center top}}
+
+/* Attach Ronaldo's right arm at the outside edge of his shoulder. */
+.ronaldo-runner .runner-arm{left:59px}
