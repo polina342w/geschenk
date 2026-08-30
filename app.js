@@ -1,5 +1,6 @@
 const loginView=document.querySelector('#login-view'),giftView=document.querySelector('#gift-view'),form=document.querySelector('#login-form'),errorBox=document.querySelector('#login-error'),submitButton=form.querySelector('[type="submit"]');
 const escapeHTML=(value='')=>String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+const birthdayLetter={title:'Alles Gute zum Geburtstag, Слоник <3',body:'Ich bin sehr froh, dass wir wieder angefangen haben, miteinander zu reden, als ich in Japan war. Ich hätte nie gedacht, dass ich einen Menschen treffen würde, dem ich so sehr vertrauen kann und bei dem ich mich so wohlfühle.\n\nIch glaube an dich und daran, dass du alles schaffen wirst, und wünsche dir zu deinem Geburtstag nur das Allerbeste. Du wirst alles meistern, weil du schön, klug und ein zukünftiger Programmierer bist )))\n\nAlles Gute zum Geburtstag!!! Und vergiss nie: Ich bin an deiner Seite und du wirst alles schaffen.',signature:'Angel'};
 
 function renderGallery(items=[]){
   const normalized=Array.from({length:10},(_,index)=>items[index]||{caption:`Eure Erinnerung ${String(index+1).padStart(2,'0')}`,note:'Foto hinzufügen',image_url:''});
@@ -11,9 +12,11 @@ function fillPage(profile){
   document.querySelector('#footer-name').textContent=name;
   document.querySelector('#birth-date').textContent=profile.birth_date_label||'Heute ist dein Tag';
   if(profile.hero_text)document.querySelector('#hero-text').textContent=profile.hero_text;
-  document.querySelector('#letter-title').textContent=profile.letter_title||`Mein liebster ${name},`;
-  if(profile.letter_body)document.querySelector('#letter-body').innerHTML=profile.letter_body.split(/\n\n+/).map(p=>`<p>${escapeHTML(p)}</p>`).join('');
-  document.querySelector('#signature').textContent=profile.signature||'dein Lieblingsmensch';
+  const hasTemplateText=!profile.letter_body||/Hier kommt dein persönlicher Text hin|Diesen Text kannst du später/i.test(profile.letter_body);
+  const letterTitle=hasTemplateText?birthdayLetter.title:(profile.letter_title||`Mein liebster ${name},`),letterBody=hasTemplateText?birthdayLetter.body:profile.letter_body;
+  document.querySelector('#letter-title').textContent=letterTitle;
+  document.querySelector('#letter-body').innerHTML=letterBody.split(/\n\n+/).map(p=>`<p>${escapeHTML(p)}</p>`).join('');
+  document.querySelector('#signature').textContent=hasTemplateText?birthdayLetter.signature:(profile.signature||'dein Lieblingsmensch');
   const finalPhoto=document.querySelector('[data-slot="final"]');
   if(profile.hero_image_url){finalPhoto.style.backgroundImage=`url("${profile.hero_image_url.replace(/["\\]/g,'')}")`;finalPhoto.classList.add('has-image');finalPhoto.innerHTML=''}
   renderGallery(profile.gallery);
