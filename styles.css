@@ -143,3 +143,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 /* A perfectly straight ribbon below the gift lid, without side protrusions. */
 .hero-present{background:linear-gradient(90deg,var(--deep) 0 41%,#d7b170 41% 59%,var(--deep) 59% 100%)}.hero-present:before{display:none}
+
+/* Center Ronaldo's neck over the torso. */
+.ronaldo-runner .runner-neck{left:33px}
