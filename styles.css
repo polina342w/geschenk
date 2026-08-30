@@ -83,3 +83,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 /* The surprise link lands on the letter itself, with a small comfortable inset. */
 #letter{scroll-margin-top:64px}@media(max-width:520px){#letter{scroll-margin-top:76px}}
+
+/* Keep the personal finale photo portrait-shaped on phones. */
+@media(max-width:520px){.finale-photo .photo-placeholder{aspect-ratio:4/5;min-height:0;background-position:center top}}
