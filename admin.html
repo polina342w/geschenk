@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#173f35">
+  <title>Фотографии подарка</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+  <main>
+    <section id="admin-login" class="admin-login">
+      <div class="login-box"><div class="eyebrow">закрытое управление</div><h1>Добавить<br><em>воспоминания.</em></h1><p>Введите отдельный админ-пароль из Vercel. Он не сохраняется в браузере.</p><form id="admin-login-form"><label for="admin-secret">ADMIN_UPLOAD_SECRET</label><input id="admin-secret" name="secret" type="password" autocomplete="current-password" required><p id="admin-login-error" class="error" role="alert"></p><button type="submit">Открыть управление <span>↗</span></button></form></div>
+    </section>
+
+    <section id="admin-panel" class="admin-panel" hidden>
+      <header><div><div class="eyebrow">private blob + neon</div><h1>Фотографии подарка</h1></div><button id="admin-logout" class="quiet-button" type="button">Выйти</button></header>
+      <div class="toolbar"><label for="profile-select">Страница</label><select id="profile-select"></select><button id="refresh-blobs" class="quiet-button" type="button">Обновить файлы</button></div>
+      <div class="instructions"><b>Как пользоваться</b><span>Назначьте каждому фото место 1–10, напишите заголовок и маленький текст. Затем выберите финальную фотографию и сохраните.</span></div>
+      <div id="global-error" class="error" role="alert"></div><div id="save-message" class="success" role="status"></div>
+      <div id="blob-grid" class="blob-grid" aria-live="polite"></div>
+      <div class="final-choice"><label for="final-photo">Финальная фотография рядом с Роналду</label><select id="final-photo"><option value="">Не выбрана</option></select></div>
+      <div class="save-bar"><span id="selection-count">0 фотографий</span><button id="save-gallery" type="button">Сохранить в Neon <span>♡</span></button></div>
+    </section>
+  </main>
+  <script src="/admin.js" defer></script>
+</body>
+</html>
