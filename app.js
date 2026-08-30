@@ -8,13 +8,12 @@ function renderGallery(items=[]){
 function fillPage(profile){
   const name=profile.display_name||profile.username||'dich';
   document.querySelector('#nav-name').textContent=name;
+  document.querySelector('#footer-name').textContent=name;
   document.querySelector('#birth-date').textContent=profile.birth_date_label||'Heute ist dein Tag';
   if(profile.hero_text)document.querySelector('#hero-text').textContent=profile.hero_text;
   document.querySelector('#letter-title').textContent=profile.letter_title||`Mein liebster ${name},`;
   if(profile.letter_body)document.querySelector('#letter-body').innerHTML=profile.letter_body.split(/\n\n+/).map(p=>`<p>${escapeHTML(p)}</p>`).join('');
   document.querySelector('#signature').textContent=profile.signature||'dein Lieblingsmensch';
-  const hero=document.querySelector('[data-slot="hero"]');
-  if(profile.hero_image_url){hero.style.backgroundImage=`url("${profile.hero_image_url.replace(/["\\]/g,'')}")`;hero.classList.add('has-image');hero.innerHTML=''}
   renderGallery(profile.gallery);
 }
 function showGift(profile){fillPage(profile);loginView.hidden=true;giftView.hidden=false;window.scrollTo(0,0);requestAnimationFrame(observeReveals);launchConfetti(55)}
