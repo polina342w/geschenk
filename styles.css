@@ -78,3 +78,5 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 /* Single-piece arms: no detached elbow segments or gaps through the shirt. */
 .ronaldo-runner .runner-arm,.ronaldo-runner .runner-arm-back{height:9px;border-radius:999px;background:#c98e68}.ronaldo-runner .runner-arm{left:54px;top:41px;width:43px;z-index:4;transform:rotate(-42deg);transform-origin:4px center}.ronaldo-runner .runner-arm-back{left:19px;top:42px;width:40px;z-index:2;transform:rotate(145deg);transform-origin:4px center}.ronaldo-runner .runner-arm>i,.ronaldo-runner .runner-arm-back>i{display:none}.ronaldo-runner .runner-arm:before,.ronaldo-runner .runner-arm-back:before{left:-2px;top:-1px;width:11px;height:11px}.balloon-finale.playing .runner-arm{animation:none}.balloon-finale.playing .runner-arm-back{animation:whole-arm-run .38s ease-in-out 16 alternate}
 @keyframes whole-arm-run{from{transform:rotate(132deg)}to{transform:rotate(162deg)}}
+
+.pet-parade .pets{padding-top:32px}@media(max-width:520px){.pet-parade .pets{padding-top:12px}}
