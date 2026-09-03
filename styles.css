@@ -73,7 +73,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .login-art:after{content:"A LITTLE GIFT"}.welcome-stamp b{font-style:normal;letter-spacing:0}.welcome-stamp span{white-space:nowrap}
 
 /* Captions grow with their text instead of overflowing past a narrow gallery card. */
-.memory figcaption,.memory figcaption>*{min-width:0;max-height:none;overflow:visible}.memory figcaption span{white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+.memory figcaption,.memory figcaption>*{min-width:0;max-height:none;overflow:visible}.memory figcaption b,.memory figcaption span{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}
 
 /* Keep Ronaldo's arms attached to the outside edges of both shoulders. */
 .ronaldo-runner .runner-arm{left:55px;top:39px}.ronaldo-runner .runner-arm-back{left:13px;top:40px}.ronaldo-runner .runner-arm:before,.ronaldo-runner .runner-arm-back:before{content:"";position:absolute;left:-4px;top:-1px;width:11px;height:11px;border-radius:50%;background:#a71930}.ronaldo-runner .runner-arm-back:before{left:0}

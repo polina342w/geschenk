@@ -3,7 +3,7 @@ import {readAdminSession} from './_admin.js';
 import {privateBlobOptions} from './_blob.js';
 import {database} from './_profile.js';
 
-const clean=(value,max=500)=>String(value||'').trim().slice(0,max);
+const clean=value=>String(value||'').trim();
 export default async function handler(request,response){
   if(request.method!=='POST')return response.status(405).json({error:'Methode nicht erlaubt.'});
   if(!await readAdminSession(request))return response.status(401).json({error:'Admin-Anmeldung erforderlich.'});
@@ -20,7 +20,7 @@ export default async function handler(request,response){
       const position=Number(item.position),pathname=clean(item.pathname,500),imageUrl=blobByPath.get(pathname);
       if(!Number.isInteger(position)||position<1||position>10||positions.has(position)||!imageUrl)return response.status(400).json({error:'Position oder Bild ist ungültig.'});
       positions.add(position);
-      const caption=clean(item.caption,160),note=clean(item.note,500),altText=clean(item.alt_text||caption,200);
+      const caption=clean(item.caption),note=clean(item.note),altText=clean(item.alt_text||caption);
       const updated=await sql`UPDATE gallery_images SET image_url=${imageUrl},alt_text=${altText},caption=${caption},note=${note} WHERE user_id=${userId} AND position=${position} RETURNING position`;
       if(!updated[0])await sql`INSERT INTO gallery_images (user_id,position,image_url,alt_text,caption,note) VALUES (${userId},${position},${imageUrl},${altText},${caption},${note})`;
     }
